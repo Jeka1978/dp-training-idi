@@ -3,6 +3,7 @@ package personalMail;
 /**
  * Created by Evegeny on 19/07/2016.
  */
+@TemplateCode(1)
 public class WelcomeMailGenerator implements MailGenerator {
     public String generateBody(MailInfo mailInfo) {
         // 70 lines of code
