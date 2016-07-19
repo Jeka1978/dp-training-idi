@@ -7,15 +7,12 @@ public class MailSender {
     public void sendMail(){
         MailInfo mailInfo = DButils.getMailInfo();
         int templateCode = mailInfo.getTemplateCode();
-        switch (templateCode) {
-            case 1:
-                //70 lines of code
-                System.out.println("Welcome " + mailInfo.getClientName());
-                break;
-            default:
-                //50 lines of code
-                System.out.println("don't call us we call you");
-                break;
-        }
+        MailTemplateEnum templateEnum = MailTemplateEnum.findByTemplateCode(templateCode);
+        String body = templateEnum.getMailGenerator().generateBody(mailInfo);
+        send(body);
+    }
+
+    private void send(String body) {
+        System.out.println("mail sent "+body);
     }
 }
