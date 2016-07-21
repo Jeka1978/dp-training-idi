@@ -9,6 +9,8 @@ public final class MaamServiceImpl implements MaamService {
     @SneakyThrows
     public double getMaam() {
         Thread.sleep(190000);
+        System.out.println(123);
+        Thread.sleep(190000);
         return 0.138746237;
     }
 
